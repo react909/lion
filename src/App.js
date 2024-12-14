@@ -1,40 +1,37 @@
-
-import { BrowserRouter, Route, Router, Routes } from 'react-router-dom';
 import './App.css';
-import Header from './componets/Header/Header';
-import Main from './componets/Main/Main';
-import Cotegory from './componets/Cotegory/Cotegory';
+import { BrowserRouter, Route, Routes } from 'react-router-dom';
+import Header from './conpanents/Header/Header';
+import Main from './conpanents/Main/Main';
+import Footer from './conpanents/Footer/Footer';
+import Korzina from './conpanents/korzina/Korzina';
 import { useState } from 'react';
-import SpecificCategory from './componets/SpecificCategory/SpecificCategory';
-import Podrobno from './componets/Podrobno/Podrobno';
-import Cart from './componets/Cotegory/Cart/Cart';
-
-
+import Boys from './conpanents/boys/Boys';
+import Grils from './conpanents/Grils/Grils';
+import Children from './conpanents/Children/Children';
 
 function App() {
-   const[products, setProducts] = useState([]);
+
+  const[korzina,setKorzina]=useState([])
+
+
+
+
+
+
+
+  return (
    
-   const [cart,setCart]=useState([])
-
-
-   return (
-
- 
-    <div className="App">
-       <BrowserRouter>
-       <Header />
-        
+      <BrowserRouter>
+        <Header />
         <Routes>
-           <Route path='/' element={<Main products={products} setProducts={setProducts}  />}/>
-           <Route path='/Cotegory' element={<Cotegory/>}/>
-           <Route path='/SpecificCategory/:name' element={<SpecificCategory/>}/>
-           <Route path='/podrobno/:id'  element={<Podrobno/>}/>
-           <Route path='/cart'  element={<Cart/>} />
-       </Routes>
-       </BrowserRouter>
-
-
-    </div>
+          <Route path='/' element={<Main/>} />
+          <Route path='/Korzina' element={<Korzina korzina={korzina} setKorzina={setKorzina}/>} />
+          <Route path='/Boys' element={<Boys/>} />
+          <Route path='/Grils' element={<Grils/>} /> 
+          <Route path='/Children' element={<Children/>} />
+        </Routes>                           
+        <Footer/>
+      </BrowserRouter>
   );
 }
 
